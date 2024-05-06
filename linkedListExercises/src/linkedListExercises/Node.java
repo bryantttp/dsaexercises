@@ -1,19 +1,23 @@
 package linkedListExercises;
 
 public class Node {
-	private int data;
+	private String data;
 	private Node nextNode;
 
-	public Node(int data, Node nextNode) {
+	public Node(String data, Node nextNode) {
 		setData(data);
 		setNext(nextNode);
 	}
 
-	public int getData() {
+	public Node() {
+
+	}
+
+	public String getData() {
 		return data;
 	}
 
-	public void setData(int data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 

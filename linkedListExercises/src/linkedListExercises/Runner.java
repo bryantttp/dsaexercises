@@ -2,7 +2,7 @@ package linkedListExercises;
 
 public class Runner {
 	public static void main(String[] args) {
-		LinkedList newList = new LinkedList();
+		SinglyLinkedList newList = new SinglyLinkedList();
 		String[] list1 = { "banana", "mango", "grapes", "orange" };
 		newList.insert_values(list1);
 		newList.delete_at_index(0);

@@ -1,20 +1,20 @@
 package linkedListExercises;
 
-public class LinkedList {
-	private Node head;
+public class SinglyLinkedList {
+	private SinglyNode head;
 
-	public LinkedList(Node node) {
+	public SinglyLinkedList(SinglyNode node) {
 		this.head = node;
 	}
 
-	public LinkedList() {
-		Node node = new Node();
+	public SinglyLinkedList() {
+		SinglyNode node = new SinglyNode();
 		this.head = node;
 	}
 
 	public int size() {
 		int count = 0;
-		Node current = head;
+		SinglyNode current = head;
 		while (current != null) {
 			current = current.getNext();
 			count += 1;
@@ -24,7 +24,7 @@ public class LinkedList {
 
 	public void print() {
 		String linkedList = "";
-		Node current = head;
+		SinglyNode current = head;
 		while (current != null) {
 			linkedList += current.getData();
 			linkedList += " -> ";
@@ -34,16 +34,16 @@ public class LinkedList {
 	}
 
 	public void insert_at_beginning(String data) {
-		Node node = new Node(data, head.getNext());
+		SinglyNode node = new SinglyNode(data, head.getNext());
 		head.setNext(node);
 	}
 
 	public void insert_at_end(String data) {
-		Node current = head;
+		SinglyNode current = head;
 		while (current.getNext() != null) {
 			current = current.getNext();
 		}
-		Node node = new Node(data, null);
+		SinglyNode node = new SinglyNode(data, null);
 		current.setNext(node);
 	}
 
@@ -53,14 +53,14 @@ public class LinkedList {
 		} else if (index == 0) {
 			insert_at_beginning(data);
 		} else {
-			Node current = head;
+			SinglyNode current = head;
 			current = current.getNext();
 			int count = 1;
 			while (count < index) {
 				current = current.getNext();
 				count += 1;
 			}
-			Node node = new Node(data, head.getNext());
+			SinglyNode node = new SinglyNode(data, head.getNext());
 			current.setNext(node);
 		}
 	}
@@ -71,13 +71,13 @@ public class LinkedList {
 		} else if (index == 0) {
 			head = head.getNext();
 		} else {
-			Node current = head;
+			SinglyNode current = head;
 			int count = 0;
 			while (count < index + 1) {
 				current = current.getNext();
 				count += 1;
 			}
-			Node node = new Node(current.getNext().getNext().getData(), current.getNext().getNext());
+			SinglyNode node = new SinglyNode(current.getNext().getNext().getData(), current.getNext().getNext());
 			current.setNext(node);
 		}
 	}
@@ -90,10 +90,10 @@ public class LinkedList {
 
 	public void insert_after_value(String data, String value) {
 		int index = 0;
-		Node current = head;
+		SinglyNode current = head;
 		while (index < this.size() - 1) {
 			if (current.getData() == data) {
-				Node node = new Node(value, current.getNext());
+				SinglyNode node = new SinglyNode(value, current.getNext());
 				current.setNext(node);
 				break;
 			} else {
@@ -105,7 +105,7 @@ public class LinkedList {
 
 	public void delete_by_value(String data) {
 		int index = 0;
-		Node current = head;
+		SinglyNode current = head;
 		if (head.getData() == data) {
 			head = head.getNext();
 		} else {
@@ -115,7 +115,7 @@ public class LinkedList {
 						current.setNext(null);
 						break;
 					} else {
-						Node node = new Node(current.getNext().getNext().getData(),
+						SinglyNode node = new SinglyNode(current.getNext().getNext().getData(),
 								current.getNext().getNext().getNext());
 						current.setNext(node);
 						break;

@@ -1,15 +1,15 @@
 package linkedListExercises;
 
-public class Node {
+public class SinglyNode {
 	private String data;
-	private Node nextNode;
+	private SinglyNode nextNode;
 
-	public Node(String data, Node nextNode) {
+	public SinglyNode(String data, SinglyNode nextNode) {
 		setData(data);
 		setNext(nextNode);
 	}
 
-	public Node() {
+	public SinglyNode() {
 
 	}
 
@@ -21,11 +21,11 @@ public class Node {
 		this.data = data;
 	}
 
-	public Node getNext() {
+	public SinglyNode getNext() {
 		return nextNode;
 	}
 
-	public void setNext(Node nextNode) {
+	public void setNext(SinglyNode nextNode) {
 		this.nextNode = nextNode;
 	}
 }

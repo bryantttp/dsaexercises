@@ -9,6 +9,10 @@ public class Runner {
 		newList.print();
 		newList.insert_after_value("mango", "apple");
 		newList.print();
+		newList.insert_at_index(2, "test");
+		newList.print();
+		newList.delete_at_index(2);
+		newList.print();
 		newList.delete_by_value("orange");
 		newList.print();
 		newList.delete_by_value("figs");

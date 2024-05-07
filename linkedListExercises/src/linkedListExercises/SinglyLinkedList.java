@@ -56,11 +56,11 @@ public class SinglyLinkedList {
 			SinglyNode current = head;
 			current = current.getNext();
 			int count = 1;
-			while (count < index) {
+			while (count < index - 1) {
 				current = current.getNext();
 				count += 1;
 			}
-			SinglyNode node = new SinglyNode(data, head.getNext());
+			SinglyNode node = new SinglyNode(data, current.getNext());
 			current.setNext(node);
 		}
 	}
@@ -71,14 +71,18 @@ public class SinglyLinkedList {
 		} else if (index == 0) {
 			head = head.getNext();
 		} else {
-			SinglyNode current = head;
-			int count = 0;
-			while (count < index + 1) {
+			SinglyNode current = head.getNext();
+			int count = 1;
+			while (count < index - 1) {
 				current = current.getNext();
 				count += 1;
 			}
-			SinglyNode node = new SinglyNode(current.getNext().getNext().getData(), current.getNext().getNext());
-			current.setNext(node);
+			if (index == this.size() - 1) {
+				current.setNext(null);
+			} else {
+				SinglyNode node = current.getNext().getNext();
+				current.setNext(node);
+			}
 		}
 	}
 
@@ -127,5 +131,4 @@ public class SinglyLinkedList {
 			}
 		}
 	}
-
 }

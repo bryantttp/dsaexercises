@@ -44,7 +44,7 @@ public class DoublyLinkedList {
 	public void print_backwards() {
 		String linkedList = "";
 		DoublyNode current = this.getLastNode();
-		while (current.getPreviousNode() != null) {
+		while (current != null) {
 			linkedList += current.getData();
 			linkedList += " -> ";
 			current = current.getPreviousNode();
@@ -55,6 +55,7 @@ public class DoublyLinkedList {
 	public void insert_at_beginning(String data) {
 		DoublyNode node = new DoublyNode(data, head, null);
 		head.setPreviousNode(node);
+		head = node;
 	}
 
 	public void insert_at_end(String data) {
@@ -76,7 +77,8 @@ public class DoublyLinkedList {
 				current = current.getNextNode();
 				count += 1;
 			}
-			DoublyNode node = new DoublyNode(data, current, current.getNextNode());
+			DoublyNode node = new DoublyNode(data, current.getNextNode(), current);
+			current.getNextNode().setPreviousNode(node);
 			current.setNextNode(node);
 		}
 	}
@@ -88,7 +90,7 @@ public class DoublyLinkedList {
 			head = head.getNextNode();
 		} else {
 			DoublyNode current = head;
-			int count = 1;
+			int count = 0;
 			while (count < index - 1) {
 				current = current.getNextNode();
 				count += 1;
@@ -97,6 +99,7 @@ public class DoublyLinkedList {
 				current.setNextNode(null);
 			} else {
 				DoublyNode node = current.getNextNode().getNextNode();
+				node.setPreviousNode(current);
 				current.setNextNode(node);
 			}
 		}
@@ -114,6 +117,7 @@ public class DoublyLinkedList {
 		while (index < this.size() - 1) {
 			if (current.getData() == data) {
 				DoublyNode node = new DoublyNode(value, current.getNextNode(), current);
+				current.getNextNode().setPreviousNode(node);
 				current.setNextNode(node);
 				break;
 			} else {
